@@ -36,7 +36,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       return;
     }
 
-    setError('Invalid password. Please try again.');
+    setError('Pleased try a demo account:');
   };
 
   return (
