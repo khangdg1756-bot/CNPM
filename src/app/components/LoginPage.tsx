@@ -15,10 +15,28 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (role: 'candidate' | 'recruiter' | 'admin') => {
-    onLogin(role);
-    navigate(`/${role}`);
+    const normalizedEmail = email.trim().toLowerCase();
+
+    if (!normalizedEmail.endsWith('@gmail.com')) {
+      setError('Please use a @gmail.com email to sign in.');
+      return;
+    }
+
+    // Demo seeded account (client-side until API is available)
+    const demoEmail = 'khoa@gmail.com';
+    const demoPassword = 'khoa@123';
+
+    if (normalizedEmail === demoEmail && password === demoPassword) {
+      setError('');
+      onLogin(role);
+      navigate(`/${role}`);
+      return;
+    }
+
+    setError('Invalid password. Please try again.');
   };
 
   return (
@@ -83,6 +101,9 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                     <p className="text-sm text-center text-gray-600">
                       Demo: Click Sign In to continue
                     </p>
+                    {error && (
+                      <p className="text-sm text-center text-red-600 mt-2">{error}</p>
+                    )}
                   </div>
                 </form>
               </CardContent>
@@ -122,6 +143,9 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                     <p className="text-sm text-center text-gray-600">
                       Demo: Click Sign In to continue
                     </p>
+                    {error && (
+                      <p className="text-sm text-center text-red-600 mt-2">{error}</p>
+                    )}
                   </div>
                 </form>
               </CardContent>
@@ -161,6 +185,9 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                     <p className="text-sm text-center text-gray-600">
                       Demo: Click Sign In to continue
                     </p>
+                    {error && (
+                      <p className="text-sm text-center text-red-600 mt-2">{error}</p>
+                    )}
                   </div>
                 </form>
               </CardContent>
