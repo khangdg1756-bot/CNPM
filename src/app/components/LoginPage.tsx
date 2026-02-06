@@ -26,8 +26,8 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
     }
 
     // Demo seeded account (client-side until API is available)
-    const demoEmail = 'khoa@gmail.com';
-    const demoPassword = 'khoa@123';
+    const demoEmail = 'khangg@gmail.com';
+    const demoPassword = 'khangg@123';
 
     if (normalizedEmail === demoEmail && password === demoPassword) {
       setError('');
@@ -36,7 +36,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       return;
     }
 
-    setError('Invalid password. Please try again.');
+    setError('abcbm1234');
   };
 
   return (
