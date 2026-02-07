@@ -8,6 +8,7 @@ import LoginPage from './components/LoginPage';
 import ForgotPasswordPage from './components/ForgotPasswordPage';
 import ResetPasswordPage from './components/ResetPasswordPage';
 import RegisterPage from './components/RegisterPage';
+import AIChatbox from './components/AIChatbox';
 
 export default function App() {
   const [userRole, setUserRole] = useState<'candidate' | 'recruiter' | 'admin' | null>(null);
@@ -68,6 +69,7 @@ export default function App() {
           } 
         />
       </Routes>
+      <AIChatbox />
     </Router>
   );
 }
