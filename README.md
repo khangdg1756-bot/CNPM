@@ -129,6 +129,7 @@ CNPM/
 ## 📄 License
 
 MIT License
+
 II. Requirement Allocation by Team Members (Based on GitHub Commits)
 
   1. PhamDangKhoa273 (Khoa)
