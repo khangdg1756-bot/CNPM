@@ -1,10 +1,16 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router';
 import { useState } from 'react';
 import LandingPage from './components/LandingPage';
 import CandidateDashboard from './components/candidate/CandidateDashboard';
 import RecruiterDashboard from './components/recruiter/RecruiterDashboard';
 import AdminDashboard from './components/admin/AdminDashboard';
 import LoginPage from './components/LoginPage';
+<<<<<<< Updated upstream
+=======
+import ForgotPasswordPage from './components/ForgotPasswordPage';
+import RegisterPage from './components/RegisterPage';
+import AIChatbox from './components/AIChatbox'; // Quay lại AIChatbox cũ
+>>>>>>> Stashed changes
 
 export default function App() {
   const [userRole, setUserRole] = useState<'candidate' | 'recruiter' | 'admin' | null>(null);
@@ -29,6 +35,17 @@ export default function App() {
           element={<LoginPage onLogin={handleLogin} />} 
         />
         <Route 
+<<<<<<< Updated upstream
+=======
+          path="/forgot-password" 
+          element={<ForgotPasswordPage />} 
+        />
+        <Route 
+          path="/:role/register" 
+          element={<RegisterPage />} 
+        />
+        <Route 
+>>>>>>> Stashed changes
           path="/candidate/*" 
           element={
             isAuthenticated && userRole === 'candidate' ? 
@@ -53,6 +70,9 @@ export default function App() {
           } 
         />
       </Routes>
+      
+      {/* AI Chatbox - Available on all pages */}
+      <AIChatbox />
     </Router>
   );
 }
