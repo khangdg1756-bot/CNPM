@@ -46,7 +46,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   };
 
   const getForgotPasswordLink = () => {
-    return `/${currentRole}/forgot-password`;
+    return '/forgot-password';
   };
 
   const getRegisterLink = () => {

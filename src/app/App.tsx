@@ -5,6 +5,8 @@ import CandidateDashboard from './components/candidate/CandidateDashboard';
 import RecruiterDashboard from './components/recruiter/RecruiterDashboard';
 import AdminDashboard from './components/admin/AdminDashboard';
 import LoginPage from './components/LoginPage';
+import ForgotPasswordPage from './components/ForgotPasswordPage';
+import ResetPasswordPage from './components/ResetPasswordPage';
 
 export default function App() {
   const [userRole, setUserRole] = useState<'candidate' | 'recruiter' | 'admin' | null>(null);
@@ -27,6 +29,14 @@ export default function App() {
         <Route 
           path="/login" 
           element={<LoginPage onLogin={handleLogin} />} 
+        />
+        <Route 
+          path="/forgot-password" 
+          element={<ForgotPasswordPage />} 
+        />
+        <Route 
+          path="/reset-password" 
+          element={<ResetPasswordPage />} 
         />
         <Route 
           path="/candidate/*" 
