@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
@@ -16,6 +17,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [currentRole, setCurrentRole] = useState<'candidate' | 'recruiter' | 'admin'>('candidate');
 
   const handleSubmit = (role: 'candidate' | 'recruiter' | 'admin') => {
     const normalizedEmail = email.trim().toLowerCase();
@@ -39,6 +41,18 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
     setError('Pleased try a demo account:');
   };
 
+  const handleTabChange = (value: string) => {
+    setCurrentRole(value as 'candidate' | 'recruiter' | 'admin');
+  };
+
+  const getForgotPasswordLink = () => {
+    return `/${currentRole}/forgot-password`;
+  };
+
+  const getRegisterLink = () => {
+    return `/${currentRole}/register`;
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
@@ -52,7 +66,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           <p className="text-gray-600">Sign in to your account</p>
         </div>
 
-        <Tabs defaultValue="candidate" className="w-full">
+        <Tabs defaultValue="candidate" className="w-full" onValueChange={handleTabChange}>
           <TabsList className="grid w-full grid-cols-3 mb-6">
             <TabsTrigger value="candidate" className="flex items-center gap-1">
               <GraduationCap className="w-4 h-4" />
@@ -104,6 +118,20 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                     {error && (
                       <p className="text-sm text-center text-red-600 mt-2">{error}</p>
                     )}
+                    <div className="flex justify-between items-center pt-2">
+                      <Link
+                        to={getForgotPasswordLink()}
+                        className="text-sm text-blue-600 hover:text-blue-700 hover:underline transition-colors"
+                      >
+                        Forgot password?
+                      </Link>
+                      <Link
+                        to={getRegisterLink()}
+                        className="text-sm text-blue-600 hover:text-blue-700 hover:underline transition-colors"
+                      >
+                        Create new account
+                      </Link>
+                    </div>
                   </div>
                 </form>
               </CardContent>
@@ -146,6 +174,20 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                     {error && (
                       <p className="text-sm text-center text-red-600 mt-2">{error}</p>
                     )}
+                    <div className="flex justify-between items-center pt-2">
+                      <Link
+                        to={getForgotPasswordLink()}
+                        className="text-sm text-blue-600 hover:text-blue-700 hover:underline transition-colors"
+                      >
+                        Forgot password?
+                      </Link>
+                      <Link
+                        to={getRegisterLink()}
+                        className="text-sm text-blue-600 hover:text-blue-700 hover:underline transition-colors"
+                      >
+                        Create new account
+                      </Link>
+                    </div>
                   </div>
                 </form>
               </CardContent>
@@ -188,6 +230,14 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                     {error && (
                       <p className="text-sm text-center text-red-600 mt-2">{error}</p>
                     )}
+                    <div className="flex justify-start items-center pt-2">
+                      <Link
+                        to={getForgotPasswordLink()}
+                        className="text-sm text-blue-600 hover:text-blue-700 hover:underline transition-colors"
+                      >
+                        Forgot password?
+                      </Link>
+                    </div>
                   </div>
                 </form>
               </CardContent>
