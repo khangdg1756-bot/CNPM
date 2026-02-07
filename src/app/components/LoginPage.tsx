@@ -38,8 +38,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       return;
     }
 
-<<<<<<< HEAD
-    setError('Pleased try a demo account:');
+    setError('Please try the demo account.');
   };
 
   const handleTabChange = (value: string) => {
@@ -52,9 +51,6 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
 
   const getRegisterLink = () => {
     return `/${currentRole}/register`;
-=======
-    setError('abcbm1234');
->>>>>>> 3fe5b7cf40903684fc3d2058c51584823a5e1d74
   };
 
   return (
