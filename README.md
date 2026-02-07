@@ -301,7 +301,7 @@ Functional Requirements – Candidate Web
 
 User Experience and Onboarding
 
-  6. mhhoai13084 (Hoài)
+  6. mhoai13084 (Hoài)
 
 System Stability and Restore
 
