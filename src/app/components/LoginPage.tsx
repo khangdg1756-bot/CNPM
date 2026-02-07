@@ -28,8 +28,8 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
     }
 
     // Demo seeded account (client-side until API is available)
-    const demoEmail = 'khoa@gmail.com';
-    const demoPassword = 'khoa@123';
+    const demoEmail = 'khangg@gmail.com';
+    const demoPassword = 'khangg@123';
 
     if (normalizedEmail === demoEmail && password === demoPassword) {
       setError('');
@@ -38,6 +38,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       return;
     }
 
+<<<<<<< HEAD
     setError('Pleased try a demo account:');
   };
 
@@ -51,6 +52,9 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
 
   const getRegisterLink = () => {
     return `/${currentRole}/register`;
+=======
+    setError('abcbm1234');
+>>>>>>> 3fe5b7cf40903684fc3d2058c51584823a5e1d74
   };
 
   return (
